@@ -4,32 +4,50 @@ Author: Amanda Riso
 
 ******History******
 Date      Initials  Description of change
-20180816  ANR       Changed checkIfValid to include .isdigit() check. Added
-                    variables to for beginning and end of range. Changed invalid
-                    prompt. Added intGuess to convert userGuess after checkIfValid
-                    returns true.
+20180816  ANR       Changed isValidGuess to include .isdigit() check.
+                    Added variables to for beginning and end of range and
+                    modified the prompt to use the new variables. Changed
+                    invalid guess print. Removed checking guess to a checkGuess
+                    method. Added Comments.
 20180814  ANR       Initial Script
 '''
 
 import random
 
-beginRange = 1
-endRange = 20
+
+strtRng = 1
+endRng = 20
 
 
+# Generates random number between given range.
 def generateRandomNumber():
-    return random.randint(beginRange, endRange)
+    return random.randint(strtRng, endRng)
 
 
+# Ask the user to guess a number between a range.
 def promptUser():
-    return input("Guess a number between 1 and 20: ")
+    return input("Guess a number between {} and {} :".format(strtRng, endRng))
 
 
-def checkIfValid(userInput):
-    if userInput.isdigit() and beginRange <= int(userInput) <= endRange:
+# Check if the guess entered is a number and if it is between the range.
+def isValidGuess(userInput):
+    if userInput.isdigit() and strtRng <= int(userInput) <= endRng:
         return True
     else:
         return False
+
+
+# Checks if the user's guess is correct or not
+def checkGuess(guess, randomNumber):
+    if guess == randomNumber:
+        print("You guessed right!")
+        return False
+    elif guess > randomNumber:
+        print("Your guess was too high!")
+        return True
+    else:
+        print("Your guess was too low!")
+        return True
 
 
 def main():
@@ -39,17 +57,8 @@ def main():
     while(promptAgain):
         userGuess = promptUser()
 
-        if checkIfValid(userGuess):
-            intGuess = int(userGuess)
-            if intGuess == randomNumber:
-                print("You guessed right!")
-                promptAgain = False
-            elif intGuess > randomNumber:
-                print("Your guess was too high!")
-                promptAgain = True
-            else:
-                print("Your guess was too low!")
-                promptAgain = True
+        if isValidGuess(userGuess):
+            promptAgain = checkGuess(int(userGuess), randomNumber)
         else:
             print("That was not a valid entry. Try again")
             promptAgain = True
