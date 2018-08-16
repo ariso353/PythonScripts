@@ -4,6 +4,10 @@ Author: Amanda Riso
 
 ******History******
 Date      Initials  Description of change
+20180816  ANR       Changed checkIfValid to include .isdigit() check. Added
+                    variables to for beginning and end of range. Changed invalid
+                    prompt. Added intGuess to convert userGuess after checkIfValid
+                    returns true.
 20180814  ANR       Initial Script
 '''
 
