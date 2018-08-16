@@ -4,6 +4,7 @@ Author: Amanda Riso
 
 ******History******
 Date      Initials  Description of change
+--------  --------  -----------------------------------------------------------
 20180816  ANR       Changed isValidGuess to include .isdigit() check.
                     Added variables to for beginning and end of range and
                     modified the prompt to use the new variables. Changed
