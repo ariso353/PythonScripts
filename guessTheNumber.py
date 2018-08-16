@@ -9,17 +9,20 @@ Date      Initials  Description of change
 
 import random
 
+beginRange = 1
+endRange = 20
+
 
 def generateRandomNumber():
-    return random.randint(1, 20)
+    return random.randint(beginRange, endRange)
 
 
 def promptUser():
-    return input("Guess a number between 1 and 20!")
+    return input("Guess a number between 1 and 20: ")
 
 
-def checkIfNumber(userInput):
-    if type(userInput) is int:
+def checkIfValid(userInput):
+    if userInput.isdigit() and beginRange <= int(userInput) <= endRange:
         return True
     else:
         return False
@@ -32,21 +35,19 @@ def main():
     while(promptAgain):
         userGuess = promptUser()
 
-        if checkIfNumber(userGuess):
-            if userGuess == randomNumber:
+        if checkIfValid(userGuess):
+            intGuess = int(userGuess)
+            if intGuess == randomNumber:
                 print("You guessed right!")
                 promptAgain = False
-                break
-            elif userGuess > randomNumber:
+            elif intGuess > randomNumber:
                 print("Your guess was too high!")
                 promptAgain = True
-                break
             else:
                 print("Your guess was too low!")
                 promptAgain = True
-                break
         else:
-            print("You did not enter a real number.  Try again")
+            print("That was not a valid entry. Try again")
             promptAgain = True
 
 
