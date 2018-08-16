@@ -4,6 +4,7 @@ Author: Amanda Riso
 
 ******History******
 Date      Initials  Description of change
+--------  --------  -----------------------------------------------------------
 20180814  ANR       Initial Script
 
 '''
