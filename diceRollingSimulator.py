@@ -12,19 +12,19 @@ import random
 
 
 # Rolls the dice between 1 - 6
-def printRoll():
+def print_roll():
     print(random.randint(1, 6))
 
 
 # Asks the user if they would like to roll the dice
-def promptUser():
+def prompt_user():
     return input("Would you like to roll the dice? (y/n)")
 
 
-# Tests if the user would like to roll and then calls the printRoll function
+# Tests if the user would like to roll and then calls the print_roll function
 def main():
-    while promptUser().lower() == 'y':
-        printRoll()
+    while prompt_user().lower() == 'y':
+        print_roll()
 
 
 # Runs the main funtion
